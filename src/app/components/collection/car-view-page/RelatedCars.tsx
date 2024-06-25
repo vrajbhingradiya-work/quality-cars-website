@@ -5,7 +5,6 @@ import Link from "next/link";
 import { emiCalculatorFunction } from "@/app/helpers/emiCalculatorFunction";
 import { useAppSelector } from "@/lib/hooks/hooks";
 import SlideInFromBottom from "../../utils/SlideInFromBottom";
-import SimpleFadeIn from "../../utils/SimpleFadeIn";
 import SlideInFromLeft from "../../utils/SlideInFromLeft";
 
 function RelatedCars() {
@@ -20,7 +19,7 @@ function RelatedCars() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 mx-auto">
         {relatedCars.slice(0, 9).map((car, index) => (
-          <SlideInFromLeft sequence={index} key={index + 8}>
+          <SlideInFromLeft sequence={index} key={index + 2}>
             <CarCard key={index} car={car} />
           </SlideInFromLeft>
         ))}

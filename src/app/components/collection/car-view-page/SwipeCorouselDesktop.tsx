@@ -1,8 +1,6 @@
 "use client";
-import { useAppSelector } from "@/lib/hooks/hooks";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useParams } from "next/navigation";
 import { useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import useMeasure from "react-use-measure";
@@ -109,7 +107,13 @@ const ImageCard = ({ image }: any) => {
         marginRight: MARGIN,
       }}
     >
-      <Image src={image} alt="image" fill={true} objectFit="cover" />
+      <Image
+        loading="lazy"
+        src={image}
+        alt="image"
+        fill={true}
+        objectFit="cover"
+      />
     </div>
   );
 };

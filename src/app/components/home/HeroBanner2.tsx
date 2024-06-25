@@ -67,25 +67,25 @@ function HeroBanner2() {
         <div className="flex flex-col md:flex-row items-center gap-16 w-full h-full  justify-between bg-white xl:p-32 md:p-20 p-8 py-16">
           <div className=" flex flex-col  gap-12  w-full ">
             <div className="text-4xl md:text-6xl font-semibold tracking-wide">
-              <SlideInFromBottom sequence={6}>
+              <SlideInFromBottom sequence={2}>
                 <p className="  text-black">PLANNING TO SELL?</p>
               </SlideInFromBottom>
-              <SlideInFromBottom sequence={8}>
+              <SlideInFromBottom sequence={4}>
                 <p className="hollowLetters">SELL US YOUR CAR</p>
               </SlideInFromBottom>
 
-              <SlideInFromBottom sequence={10}>
+              <SlideInFromBottom sequence={6}>
                 <p className="hollowLetters">IN 29 MINUTES.</p>
               </SlideInFromBottom>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {iconsBoxes.map((icon, index) => (
-                <SlideInFromBottom key={index} sequence={6 + index}>
+                <SlideInFromBottom key={index} sequence={8 + index}>
                   <IconBoxAndDetails icon={icon} />
                 </SlideInFromBottom>
               ))}
             </div>
-            <SimpleFadeIn sequence={50}>
+            <SimpleFadeIn sequence={25}>
               <Button
                 title="KNOW MORE"
                 className="border-[1px] border-black/50 text-black fill-black/50 hover:bg-black hover:text-white hover:fill-white w-[180px] md:w-[280px] text-base md:text-xl"

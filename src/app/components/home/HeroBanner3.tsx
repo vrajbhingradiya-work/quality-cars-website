@@ -49,7 +49,7 @@ function HeroBanner3() {
               </SlideInFromBottom>
             ))}
           </div>
-          <SimpleFadeIn sequence={20}>
+          <SimpleFadeIn sequence={15}>
             <Button
               link="/collection"
               title="EXPLORE"

@@ -1,11 +1,10 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useAppSelector } from "@/lib/hooks/hooks";
 import LoadingIcon from "../loading/LoadingIcon";
 import { emiCalculatorFunction } from "@/app/helpers/emiCalculatorFunction";
-import SlideInFromLeft from "../utils/SlideInFromLeft";
 import SimpleFadeIn from "../utils/SimpleFadeIn";
 import SlideInFromBottom from "../utils/SlideInFromBottom";
 

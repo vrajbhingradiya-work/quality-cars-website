@@ -8,9 +8,16 @@ function SwipeCorousel({ car }: any) {
         {car?.images.map((image: any, index: any) => (
           <div
             key={index}
-            className=" h-full xl:h-[50vh] max-h-[281px] w-[100%] max-w-[500px] object-cover rounded-lg"
+            className=" relative  w-[95vw] overflow-hidden rounded-lg"
           >
-            <Image src={image} fill={true} objectFit="cover" alt="image" />
+            <Image
+              loading="lazy"
+              src={image}
+              width={700}
+              height={394}
+              objectFit="cover"
+              alt="image"
+            />
           </div>
         ))}
       </div>

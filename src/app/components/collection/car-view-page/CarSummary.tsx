@@ -136,7 +136,7 @@ function CarSummary({
         {carSpecs.map((spec, index) => (
           <SlideInFromBottom
             key={index}
-            sequence={index > 0 ? index - 0.8 : index}
+            sequence={index > 0 ? index - 1 : index}
           >
             <IconAndTitle key={index} spec={spec} />
           </SlideInFromBottom>
