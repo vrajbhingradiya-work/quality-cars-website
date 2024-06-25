@@ -1,8 +1,8 @@
 "use client";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks/hooks";
-import { fetchCars } from "@/lib/store/carSlice";
+import { fetchCars, setCars } from "@/lib/store/carSlice";
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import { BsSliders2Vertical as FilterIcon } from "react-icons/bs";
 import { VscDebugRestart as ResetIcon } from "react-icons/vsc";
 
@@ -10,19 +10,37 @@ import SlideInFromBottom from "../utils/SlideInFromBottom";
 import { defaultFilterQueries } from "@/lib/defaultFilter";
 
 function FilterSection() {
-  const results = useAppSelector((state) => state.car.cars)?.length;
+  const cars = useAppSelector((state) => state.car.cars);
+  const results = cars?.length;
+  const dispatch = useAppDispatch();
 
-  const [sort, setSort] = React.useState("default");
+  const [sort, setSort] = React.useState(0);
   const [isShowing, setIsShowing] = React.useState(false);
 
-  const [filterQueries, setFilterQueries] = React.useState({
-    regYear: "",
-    kmsDriven: "",
-    price: "",
-    carType: "",
-    brand: "",
-    isCarNew: "",
-  });
+  useEffect(() => {
+    if (results !== 0) {
+      let sortedCars;
+      console.log("funtion called for sorting");
+      switch (sort) {
+        case 0:
+          sortedCars = [...cars]; // Create a shallow copy of the array
+          break;
+        case 1:
+          sortedCars = [...cars].sort((x: any, y: any) => y.price - x.price);
+          break;
+        case 2:
+          sortedCars = [...cars].sort((x: any, y: any) => x.price - y.price);
+          break;
+        default:
+          sortedCars = [...cars].sort((x: any, y: any) => x.price - y.price);
+          break;
+      }
+      dispatch(setCars(sortedCars)); // Dispatch the new sorted array
+    }
+  }, [sort]);
+
+  const [filterQueries, setFilterQueries] =
+    React.useState(defaultFilterQueries);
 
   return (
     <div
@@ -44,24 +62,24 @@ function FilterSection() {
                 setIsShowing(!isShowing);
               }}
               className={` ${
-                filterQueries?.regYear === "" &&
-                filterQueries?.brand === "" &&
+                filterQueries?.regYear.title === "All" &&
+                filterQueries?.brand.title === "" &&
                 filterQueries?.isCarNew === "" &&
-                filterQueries?.kmsDriven === "" &&
-                filterQueries?.price === "" &&
-                filterQueries?.carType === ""
+                filterQueries?.kmsDriven.title === "" &&
+                filterQueries?.price.title === "" &&
+                filterQueries?.carType.title === ""
                   ? "fill-black"
                   : "fill-white bg-black"
               } rounded-md border-[1px] p-2 border-[#D9D9D9] `}
             >
               <FilterIcon
                 className={` ${
-                  filterQueries?.regYear === "" &&
-                  filterQueries?.brand === "" &&
+                  filterQueries?.regYear.title === "All" &&
+                  filterQueries?.brand.title === "" &&
                   filterQueries?.isCarNew === "" &&
-                  filterQueries?.kmsDriven === "" &&
-                  filterQueries?.price === "" &&
-                  filterQueries?.carType === ""
+                  filterQueries?.kmsDriven.title === "" &&
+                  filterQueries?.price.title === "" &&
+                  filterQueries?.carType.title === ""
                     ? "fill-black"
                     : "fill-white bg-black"
                 } h-6 w-6`}
@@ -83,13 +101,13 @@ function FilterSection() {
               className="p-2 px-4 border-[1px] border-[#D9D9D9] rounded-md flex justify-between w-[200px]  items-center"
               value={sort}
               onChange={(e) => {
-                setSort(e.target.value);
+                setSort(Number(e.target.value));
                 console.log("sort", e.target.value);
               }}
             >
-              <option value="default">Price</option>
-              <option value="hightolow">Price - High to Low</option>
-              <option value="lowtohigh">Price - Low to High</option>
+              <option value={0}>Price</option>
+              <option value={1}>Price - High to Low</option>
+              <option value={2}>Price - Low to High</option>
             </select>
           </div>
         </div>
