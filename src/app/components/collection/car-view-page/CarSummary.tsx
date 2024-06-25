@@ -125,7 +125,7 @@ function CarSummary({
     {
       svg: <FaPalette className={iconClassName} />,
       title: "Exterior Color",
-      value: "Blue", // Assuming exterior color is not part of car object, this can be modified if provided
+      value: car.exteriorColor, // Assuming exterior color is not part of car object, this can be modified if provided
     },
   ];
 

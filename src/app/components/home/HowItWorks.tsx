@@ -4,7 +4,6 @@ import img1 from "../../../assets/images/home/howItWorks/howitworks-img1.png";
 import img2 from "../../../assets/images/home/howItWorks/howitworks-img2.png";
 import img3 from "../../../assets/images/home/howItWorks/howitworks-img3.png";
 import img4 from "../../../assets/images/home/howItWorks/howitworks-img4.png";
-import SlideInFromTop from "../utils/SlideInFromTop";
 import SlideInFromBottom from "../utils/SlideInFromBottom";
 
 function HowItWorks() {

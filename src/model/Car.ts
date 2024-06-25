@@ -22,6 +22,7 @@ export interface Car extends Document {
     drive: string;
     seatingCapacity: string;
     manufacturingYear: number;
+    exteriorColor: string;
   };
   isBooked: boolean;
   isSold: boolean;
@@ -51,6 +52,7 @@ const CarSchema: Schema<Car> = new Schema({
     drive: { type: String, default: null },
     seatingCapacity: { type: String, default: null },
     manufacturingYear: { type: Number, default: null },
+    exteriorColor: { type: String, default: null },
   },
   isBooked: { type: Boolean, required: true, default: false },
   isSold: { type: Boolean, required: true, default: false },

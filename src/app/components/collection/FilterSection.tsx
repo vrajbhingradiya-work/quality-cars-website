@@ -5,10 +5,9 @@ import { motion } from "framer-motion";
 import React from "react";
 import { BsSliders2Vertical as FilterIcon } from "react-icons/bs";
 import { VscDebugRestart as ResetIcon } from "react-icons/vsc";
-import SimpleFadeIn from "../utils/SimpleFadeIn";
-import { Slide } from "@mui/material";
+
 import SlideInFromBottom from "../utils/SlideInFromBottom";
-import SlideInFromTop from "../utils/SlideInFromTop";
+
 function FilterSection() {
   const results = useAppSelector((state) => state.car.cars)?.length;
 
