@@ -7,16 +7,16 @@ export async function POST(req: Request) {
   const filterQueries = await req.json();
 
   try {
-    let cars = [];
+    let cars: any = [];
 
     console.log("filterQueries", filterQueries);
     if (
-      filterQueries?.regYear === "" &&
-      filterQueries?.brand === "" &&
+      filterQueries?.regYear.title === "All" &&
+      filterQueries?.brand.title === "" &&
       filterQueries?.isCarNew === "" &&
-      filterQueries?.kmsDriven === "" &&
-      filterQueries?.price === "" &&
-      filterQueries?.carType === ""
+      filterQueries?.kmsDriven.title === "" &&
+      filterQueries?.price.title === "" &&
+      filterQueries?.carType.title === ""
     ) {
       cars = await CarModel.find();
     } else {
@@ -24,33 +24,36 @@ export async function POST(req: Request) {
 
       const filterString = {
         regYear:
-          filterQueries?.regYear !== ""
+          filterQueries?.regYear.title !== "All"
             ? {
                 $gte: filterQueries.regYear.value.rangeStart,
                 $lte: filterQueries.regYear.value.rangeEnd,
               }
-            : { $gte: currentYear - 100, $lte: currentYear },
+            : { $gte: 1900, $lte: currentYear },
         kmsDriven:
-          filterQueries?.kmsDriven !== ""
+          filterQueries?.kmsDriven.title !== ""
             ? {
                 $gte: filterQueries.kmsDriven.value.rangeStart,
                 $lte: filterQueries.kmsDriven.value.rangeEnd,
               }
             : { $gte: 0, $lte: 1000000 },
         price:
-          filterQueries?.price !== ""
+          filterQueries?.price.title !== ""
             ? {
                 $gte: filterQueries.price.value.rangeStart,
                 $lte: filterQueries.price.value.rangeEnd,
               }
             : { $gte: 0, $lte: 10000000000 },
         carType:
-          filterQueries?.carType !== "" ? filterQueries.carType.value : {},
-        brand: filterQueries?.brand !== "" ? filterQueries.brand.value : {},
+          filterQueries?.carType.title !== ""
+            ? filterQueries.carType.value
+            : {},
+        brand:
+          filterQueries?.brand.title !== "" ? filterQueries.brand.value : {},
       };
 
       console.log("filter string run 18:42", filterString);
-      cars = await CarModel.find(filterString);
+      // cars = await CarModel.find(filterString);
       console.log(cars);
     }
     return NextResponse.json(

@@ -6,23 +6,19 @@ import React, { useEffect, useState } from "react";
 import logo from "../../../assets/images/quality-cars-logo.png";
 import BannerImage from "../../../assets/images/navbar-banner-image.jpg";
 import { IoCarSportOutline as CarIcon } from "react-icons/io5";
-import { useParams, usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import LoadingPageTranstion from "../loading/LoadingPageTranstion";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks/hooks";
-import {
-  startLoadingTransition,
-  stopLoadingTransition,
-} from "@/lib/store/loadingTransitionSlice";
+
 import { fetchCars } from "@/lib/store/carSlice";
 import SimpleFadeIn from "../utils/SimpleFadeIn";
 import SlideInFromBottom from "../utils/SlideInFromBottom";
+import { defaultFilterQueries } from "@/lib/defaultFilter";
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
-  const path = usePathname();
-  const params = useParams();
+
   const loading = useAppSelector((state) => state.loadingTransition.isLoading);
-  const cars = useAppSelector((state) => state.car.cars);
 
   const dispatch = useAppDispatch();
 
@@ -30,16 +26,7 @@ function Navbar() {
     // dispatch(startLoadingTransition(""));
 
     setTimeout(() => {
-      dispatch(
-        fetchCars({
-          regYear: "",
-          kmsDriven: "",
-          price: "",
-          carType: "",
-          brand: "",
-          isCarNew: "",
-        })
-      );
+      dispatch(fetchCars(defaultFilterQueries));
     }, 2000);
   }, [dispatch]);
 

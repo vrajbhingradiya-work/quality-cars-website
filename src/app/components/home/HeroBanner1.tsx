@@ -14,6 +14,7 @@ function HeroBanner1() {
           <div className="hidden relative md:block object-cover h-[50vh] xl:h-[100vh] w-full">
             <Image
               src={image}
+              priority={true}
               objectFit="cover"
               fill={true}
               alt="background image"
@@ -24,6 +25,7 @@ function HeroBanner1() {
           <div className="relative md:hidden object-cover h-[85vh] w-full">
             <Image
               src={image}
+              priority={true}
               alt="background image"
               objectFit="cover"
               fill={true}

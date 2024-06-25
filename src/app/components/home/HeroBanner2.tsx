@@ -102,6 +102,7 @@ function HeroBanner2() {
                   width={1200}
                   src={image}
                   alt="showroom image"
+                  priority={true}
                 />
               </div>
             </div>

@@ -8,6 +8,7 @@ function BannerAboutUs() {
       <div className="relative h-[60vh] lg:h-[85vh] w-full">
         <Image
           src={bgImage}
+          priority={true}
           alt="image"
           className="h-full w-full object-cover"
         />

@@ -9,6 +9,7 @@ function BannerCompareCars() {
         <Image
           src={bgImage}
           alt="image"
+          priority={true}
           className="h-full w-full object-cover"
         />
         <div className="absolute top-0 left-0 h-full w-full flex items-end p-16 px-32 tracking-widest bg-black/75 ">

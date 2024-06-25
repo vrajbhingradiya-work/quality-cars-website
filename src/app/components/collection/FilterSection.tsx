@@ -7,6 +7,7 @@ import { BsSliders2Vertical as FilterIcon } from "react-icons/bs";
 import { VscDebugRestart as ResetIcon } from "react-icons/vsc";
 
 import SlideInFromBottom from "../utils/SlideInFromBottom";
+import { defaultFilterQueries } from "@/lib/defaultFilter";
 
 function FilterSection() {
   const results = useAppSelector((state) => state.car.cars)?.length;
@@ -252,79 +253,114 @@ function FilterOptions({ isShowing, setIsShowing, setFilterQueries }: any) {
   ];
   const brandOptions = [
     {
-      title: "SUV",
+      title: "MERCEDES",
       img: "",
-      value: "SUV",
+      value: "MERCEDES",
     },
     {
-      title: "Sedan",
+      title: "VOLVO",
       img: "",
-      value: "SEDAN",
+      value: "VOLVO",
     },
     {
-      title: "Convertible",
+      title: "BMW",
       img: "",
-      value: "CONVERTIBLE",
+      value: "BMW",
     },
     {
-      title: "Coupe",
+      title: "AUDI",
       img: "",
-      value: "COUPE",
+      value: "AUDI",
     },
     {
-      title: "Sports",
+      title: "LAND ROVER",
       img: "",
-      value: "SPORT",
+      value: "LAND ROVER",
     },
     {
-      title: "MUV-MPV",
+      title: "FERRARI",
       img: "",
-      value: "MUV-MPV",
+      value: "FERRARI",
     },
     {
-      title: "Hatchback",
+      title: "PORSCHE",
       img: "",
-      value: "HATCHBACK",
+      value: "PORSCHE",
     },
     {
-      title: "Bike",
+      title: "TOYOTA",
       img: "",
-      value: "BIKE",
+      value: "TOYOTA",
     },
   ];
 
   const dispatch = useAppDispatch();
 
   const [selectedYearOption, setSelectedYearOption] = React.useState({
-    title: "",
+    title: "All",
+    value: {
+      rangeStart: currentYear - 100,
+      rangeEnd: currentYear,
+    },
   });
   const [selectedKmsDrivenOption, setSelectedKmsDrivenOption] = React.useState({
     title: "",
+    value: {
+      rangeStart: 0,
+      rangeEnd: 2000000,
+    },
   });
   const [selectedBudgetOption, setSelectedBudgetOption] = React.useState({
     title: "",
+    value: {
+      rangeStart: 0,
+      rangeEnd: 1500000000,
+    },
   });
   const [selectedBodyTypeOption, setSelectedBodyTypeOption] = React.useState({
     title: "",
+    img: "",
+    value: "",
   });
   const [selectedBrandOption, setSelectedBrandOption] = React.useState({
+    title: "",
+    img: "",
     value: "",
   });
 
   const handleReset = () => {
-    setSelectedBrandOption({ value: "" });
-    setSelectedBodyTypeOption({ title: "" });
-    setSelectedBudgetOption({ title: "" });
-    setSelectedKmsDrivenOption({ title: "" });
-    setSelectedYearOption({ title: "" });
-    setFilterQueries({
-      regYear: "",
-      kmsDriven: "",
-      price: "",
-      carType: "",
-      brand: "",
-      isCarNew: "",
+    setSelectedBrandOption({
+      title: "",
+      img: "",
+      value: "",
     });
+    setSelectedBodyTypeOption({
+      title: "",
+      img: "",
+      value: "",
+    });
+    setSelectedBudgetOption({
+      title: "",
+      value: {
+        rangeStart: 0,
+        rangeEnd: 1500000000,
+      },
+    });
+    setSelectedKmsDrivenOption({
+      title: "",
+      value: {
+        rangeStart: 0,
+        rangeEnd: 2000000,
+      },
+    });
+    setSelectedYearOption({
+      title: "All",
+      value: {
+        rangeStart: currentYear - 100,
+        rangeEnd: currentYear,
+      },
+    });
+    setFilterQueries(defaultFilterQueries);
   };
 
   const applyFilters = () => {
@@ -479,6 +515,8 @@ function FilterOptions({ isShowing, setIsShowing, setFilterQueries }: any) {
                     value={selectedBrandOption?.value}
                     onChange={(e) => {
                       setSelectedBrandOption({
+                        title: e.target.value,
+                        img: "",
                         value: e.target.value,
                       });
                     }}
