@@ -14,11 +14,6 @@ function page() {
       <SlideInFromLeft sequence={8}>
         <ContactForm />
       </SlideInFromLeft>
-      <div className="md:px-32 pb-16 w-full lg:col-span-2 ">
-        <SlideInFromBottom sequence={8}>
-          <ClickToActionBtns />
-        </SlideInFromBottom>
-      </div>
     </div>
   );
 }

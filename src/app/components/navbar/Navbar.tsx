@@ -11,7 +11,6 @@ import LoadingPageTranstion from "../loading/LoadingPageTranstion";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks/hooks";
 
 import { fetchCars } from "@/lib/store/carSlice";
-import SimpleFadeIn from "../utils/SimpleFadeIn";
 import SlideInFromBottom from "../utils/SlideInFromBottom";
 import { defaultFilterQueries } from "@/lib/defaultFilter";
 function Navbar() {
@@ -149,25 +148,30 @@ function Navbar() {
         } h-[120px] flex justify-between items-center overflow-hidden`}
       >
         <Link className="flex justify-center items-center " href="/">
-          <Image src={logo} className="p-16 pl-0" alt="Logo" />
+          <div className="w-[225px]">
+            <Image src={logo} className="object-contain w-full" alt="Logo" />
+          </div>
         </Link>
-        <div className="flex gap-4 xl:justify-between  text-xl  justify-end items-center w-[50%]">
-          <Link className="hidden xl:block" href="tel:9829407612">
-            {/* options */}BUY - 9829 4076 12
+        <div className="flex gap-8 xl:justify-end   text-xl  justify-end items-center w-[50%]">
+          {/*
+            <Link className="hidden xl:block" href="tel:9829407612">
+            // options  
+            BUY - 9829 4076 12
           </Link>
           <div className="hidden xl:block text-xl">
-            |{/* straight slash seperator */}
+            |
           </div>
           <Link className="hidden xl:block" href="/sell-car">
             {" "}
             SELL - 9829 4076 12
           </Link>
           <div className="hidden xl:block text-xl">
-            |{/* straight slash seperator */}
-          </div>
-          <Link className="hidden xl:block" href="tel:9829407612">
+            |
+            // straight slash seperator 
+          </div>  */}
+          <Link className="hidden xl:block" href="tel:+919829407612">
             {" "}
-            QUALITY CARS - 9829 4076 12{" "}
+            QUALITY CARS - +91 9829 4076 12
           </Link>
           <div className="hidden xl:block text-xl">
             |{/* straight slash seperator */}
@@ -229,9 +233,13 @@ function Navbar() {
             <div className="flex flex-col  w-full md:w-[40%] xl:w-[70%] h-[100%]">
               {/* cross mark */}
               <div className="flex justify-between items-center py-4 px-16 fill-white ">
-                <Link className="flex justify-center items-center " href="/">
-                  <Image src={logo} className="p-16 pl-0" alt="Logo" />
-                </Link>
+                <div className="w-[225px]">
+                  <Image
+                    src={logo}
+                    className="object-contain w-full"
+                    alt="Logo"
+                  />
+                </div>
                 <button
                   aria-label="Toggle menu"
                   type="button"
@@ -247,7 +255,7 @@ function Navbar() {
               </div>
 
               {/* MENU options */}
-              <div className=" w-full grid grid-cols-1 xl:grid-cols-2  gap-3 xl:gap-6 text-left text-xl items-center pl-16 pt-12 xl:px-[10%] xl:p-10 h-[70vh] xl:h-[50vh] scroll overflow-x-hidden xl:overflow-y-scroll overflow-y-auto bg-gradient-to-b to-transparent">
+              <div className=" xl:my-16 w-full grid grid-cols-1 xl:grid-cols-2  gap-3 xl:gap-6 text-left text-xl items-center pl-16 pt-12 xl:px-[10%] xl:p-10 h-[70vh] xl:h-[50vh] scroll overflow-x-hidden xl:overflow-y-scroll overflow-y-auto bg-gradient-to-b to-transparent">
                 {/* option 1 */}
                 {menuOptions.map((option) => (
                   <button

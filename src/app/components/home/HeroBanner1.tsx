@@ -41,7 +41,7 @@ function HeroBanner1() {
             </SlideInFromBottom>
             <SlideInFromBottom sequence={2}>
               <span className="text-xl md:text-2xl pr-[30%] md:p-0 md:-mt-4 md:mb-4 xl:mb-2">
-                We are the best when it comes to Exotic Cars.
+                We are the best when it comes to Pre-owned Luxury Cars.
               </span>
             </SlideInFromBottom>
             {/* <label htmlFor="input">

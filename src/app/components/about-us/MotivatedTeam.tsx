@@ -17,7 +17,7 @@ function MotivatedTeam() {
             <p className="  text-black">MOTIVATED TEAM</p>
           </div>
           <div className="text-lg md:text-2xl">
-            {`At Quality Cars our vision is to buy and sell modern cars that define quality and luxury for the 21st century. Applying our expertise in this industry, we aspire to transform the exotic car market, where cars are the ultimate expression of modern dynamism and luxury.`}
+            {`At Quality Cars our vision is to buy and sell modern cars that define quality and luxury for the 21st century. Applying our expertise in this industry, we aspire to transform the exotic car's market, where cars are the ultimate expression of modern dynamism and luxury.`}
           </div>
           <Link
             href="/"

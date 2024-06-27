@@ -32,7 +32,7 @@ function SellCar() {
         </svg>
       ),
       className: "text-black",
-      details: { line1: "Get Offer", line2: "in 29 Minutes" },
+      details: { line1: "Sell your car", line2: "at best prices!" },
     },
     {
       svg: (
@@ -45,7 +45,7 @@ function SellCar() {
         </svg>
       ),
       className: "text-black",
-      details: { line1: "10000+ Satisified", line2: "Customers" },
+      details: { line1: "2000+ Satisified", line2: "Customers" },
     },
   ];
   return (
@@ -54,8 +54,8 @@ function SellCar() {
         <div className=" flex flex-col  justify-between gap-8 w-full py-16 pt-8 ">
           <div className="text-3xl md:text-5xl  text-left font-semibold tracking-wide w-full flex flex-col gap-2 justify-center items-center xl:items-start xl:pl-6">
             <p className="  text-black  w-full">SELL YOUR LUXURY CAR</p>
-            <p className="hollowLetters w-full">WITHIN 29 MINUTES IN</p>
-            <p className="hollowLetters w-full ">3 EASY STEPS.</p>
+            <p className="hollowLetters w-full">AT MOST APPROPRIATE PRICE</p>
+            {/* <p className="hollowLetters w-full "></p> */}
           </div>
           <div className="w-full xl:hidden rounded-2xl overflow-hidden">
             <Image
@@ -71,7 +71,7 @@ function SellCar() {
           </div>
           <div className="mt-8 flex flex-col xl:flex-row items-center justify-center xl:justify-start xl:items-start xl:pl-6 gap-4 w-full">
             <Link
-              href="https://wa.me/9829407612"
+              href="https://wa.me/9799907612"
               className={`bg-[#2CB742] hover:bg-[#1C9E32] fill-white gap-4 w-full md:w-[90%] md:max-w-[280px] xl:max-w-full px-4 pl-6 py-4 flex justify-between items-center group transition ease-in-out duration-300 rounded-xl tracking-[.2em]`}
             >
               <WhatsappIcon className="h-[22px] w-[22px]" />
@@ -86,10 +86,10 @@ function SellCar() {
               </svg>
             </Link>
             <Link
-              href="tel:9829407612"
+              href="tel:9799907612"
               className={`w-full md:w-[90%] md:max-w-[280px] xl:max-w-full bg-black hover:bg-white hover:text-black border-black hover:border-[1px]  flex items-center justify-center px-4 pl-6 py-4 group transition ease-in-out duration-300 rounded-xl tracking-[.2em]`}
             >
-              <span>CALL NOW: 9829407612</span>
+              <span>CALL NOW: 9799907612</span>
 
               <svg
                 className={`w-[15px] h-[15px] group-hover:translate-x-1   transition ease-in-out duration-150`}

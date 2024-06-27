@@ -26,7 +26,7 @@ function HeroBanner3() {
       svg: <Icon3 className="h-[25px] w-[25px] md:h-[30px] md:w-[30px] " />,
       className: "text-[#6D6D6D] fill-[#2F2F2F]  ",
       details: {
-        line1: "More Than 317 Luxury Cars &",
+        line1: "More Than 57 Luxury Cars &",
         line2: "It's In Depth Specifications",
       },
     },
@@ -37,7 +37,7 @@ function HeroBanner3() {
         <div className=" flex flex-col  gap-12  w-full ">
           <SlideInFromBottom sequence={2}>
             <div className="text-3xl md:text-6xl font-semibold tracking-wide text-white">
-              <p className="  ">BROWSE QUALITY CARS</p>
+              <p className="  ">{`BROWSE QUALITY CAR'S`}</p>
               <p className="  ">DATABASE OF NEW LUXURY</p>
               <p className="  ">CARS IN INDIA</p>
             </div>

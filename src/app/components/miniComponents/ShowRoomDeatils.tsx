@@ -9,7 +9,9 @@ function ShowRoomDetails({ element }: any) {
           element.className == "" ? "" : element.className
         } grid grid-cols-1 md:grid-cols-2 items-center justify-start text-black `}
       >
-        <span className="font-semibold text-xl">{element.details?.line1}</span>
+        <span className="font-semibold text-xl group-hover:font-semibold group-hover:ease-in-out transtition duration-200">
+          {element.details?.line1}
+        </span>
         <Link
           href={element.details?.addressLink}
           className="p-2 md:p-4 flex items-center  text-black/60 underline text-base font-medium hover:text-black transition hover:ease-in-out duration-150 "

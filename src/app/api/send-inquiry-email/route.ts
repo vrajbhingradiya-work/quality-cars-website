@@ -4,13 +4,7 @@ import { NextResponse } from "next/server";
 export async function POST(request: any) {
   try {
     console.log(request.body);
-    const {
-      clientName,
-      clientNumber,
-      clientEmailId,
-      clientLocation,
-      clientMessage,
-    } = await request.json();
+    const {} = await request.json();
 
     var transport = nodemailer.createTransport({
       service: "Gmail", // Use your email service

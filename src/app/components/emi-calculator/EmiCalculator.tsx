@@ -19,7 +19,7 @@ function EmiCalculator({ isShowing, setIsShowing, selectedCar }: any) {
     selectedCar ? selectedCar : { carModel: "", price: 0 }
   );
 
-  const [annualInterestRate, setAnnualInterestRate] = React.useState(9.9);
+  const [annualInterestRate, setAnnualInterestRate] = React.useState(12);
   const [termPeriod, setTermPeriod] = React.useState(60);
   const [totalInterestPayment, setTotalInterestPayment] = React.useState(0);
   const [totalAmountToPay, setTotalAmountToPay] = React.useState(0);
@@ -167,7 +167,7 @@ function EmiCalculator({ isShowing, setIsShowing, selectedCar }: any) {
                         type="Number"
                         value={annualInterestRate}
                         onChange={(e) => {
-                          const value = Number(e.target.value);
+                          const newValue = Number(e.target.value);
                           // if (value < 7) {
                           //   setAnnualInterestRate(7);
                           // } else if (value > 15) {
@@ -175,7 +175,7 @@ function EmiCalculator({ isShowing, setIsShowing, selectedCar }: any) {
                           // } else {
                           //   setAnnualInterestRate(value);
                           // }
-                          setAnnualInterestRate(value);
+                          setAnnualInterestRate(newValue);
                         }}
                         min={7}
                         max={15}

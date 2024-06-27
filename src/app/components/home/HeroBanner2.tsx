@@ -32,7 +32,7 @@ function HeroBanner2() {
         </svg>
       ),
       className: "text-black",
-      details: { line1: "Best Offer", line2: "in 29 Minutes" },
+      details: { line1: "Best Price", line2: "Offers" },
     },
     {
       svg: (
@@ -45,7 +45,7 @@ function HeroBanner2() {
         </svg>
       ),
       className: "text-black",
-      details: { line1: "7600+ Satisified", line2: "Customers" },
+      details: { line1: "2000+ Satisified", line2: "Customers" },
     },
     {
       svg: (
@@ -75,7 +75,7 @@ function HeroBanner2() {
               </SlideInFromBottom>
 
               <SlideInFromBottom sequence={6}>
-                <p className="hollowLetters">IN 29 MINUTES.</p>
+                <p className="hollowLetters">AT BEST PRICE.</p>
               </SlideInFromBottom>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

@@ -51,8 +51,8 @@ const HomePageCarsCarousel = () => {
         {/* CARDS */}
         <SimpleFadeIn sequence={4}>
           <div className="mb-4 text-4xl md:text-6xl flex flex-col md:flex-row gap-2 font-medium text-black/80 pb-8 text-center ">
-            <p className="">MOST POPULAR</p>
-            <span className="text-black font-bold"> @ QUALITY CARS</span>
+            {/* <p className="">OUR FLEET</p> */}
+            <span className="text-black font-bold"> OUR FLEET</span>
           </div>
         </SimpleFadeIn>
         <SimpleFadeIn sequence={6}>
@@ -120,7 +120,7 @@ const Card = ({ car }: any) => {
           {car?.brand}
         </span>
         <p className="my-2 text-3xl font-bold">{car?.carModel}</p>
-        <p className="text-lg text-black">{car?.price}</p>
+        {/* <p className="text-lg text-black">{car?.price}</p> */}
       </div>
     </Link>
   );

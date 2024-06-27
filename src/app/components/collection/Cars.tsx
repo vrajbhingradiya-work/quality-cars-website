@@ -37,7 +37,7 @@ function Cars() {
           ))}
         </div>
         {/* mobile */}
-        <div className="md:hidden p-8 lg:px-16 md:py-16 flex flex-col justify-center   gap-8 items-center">
+        <div className="md:hidden p-8 lg:px-16 md:py-16 flex flex-col justify-center   gap-16 items-center">
           {cars?.slice(0, totalResults).map((car, index) => (
             <SlideInFromLeft sequence={index + 1} key={index}>
               <CarCard car={car} key={index} />
@@ -83,7 +83,7 @@ function CarCard({ car }: any) {
   return (
     <Link
       href={`/collection/${car?.id}`}
-      className=" relative  min-h-[500px] md:min-h-[610px] min-w-[320px] max-w-[400px] flex flex-col  gap-4 rounded-xl bg-[#F4F4F4]"
+      className=" relative  min-h-[500px] md:min-h-[550px] min-w-[320px] max-w-[380px] flex flex-col  gap-4 rounded-xl bg-[#F4F4F4]"
     >
       {car?.isBooked && (
         <div className="absolute z-10 top-6 -right-[1.25px] bg-[#E00F0E] rounded-l-xl p-4 py-1 font-[500] text-sm tracking-widest">
@@ -95,7 +95,7 @@ function CarCard({ car }: any) {
           NEW
         </div>
       )}
-      <div className="relative w-full h-[240px] xl:h-[300px] rounded-t-xl overflow-hidden">
+      <div className="relative w-full h-[240px] xl:h-[260px] rounded-t-xl overflow-hidden">
         <Image
           src={car?.images[0]}
           objectFit="cover"
@@ -105,10 +105,10 @@ function CarCard({ car }: any) {
         />
       </div>
       <div className=" flex flex-col justify-between gap-2  p-2 px-6 text-black font-medium tracking-wider">
-        <div className="md:h-[200px] flex flex-col justify-between gap-2  text-black font-medium tracking-wider">
+        <div className="md:h-[150px] flex flex-col  gap-2  text-black font-medium tracking-wider">
           <p className=" text-lg font-[600]">&#x20b9; {carPrice}</p>
-          <p className="text-4xl md:text-5xl">{car.carModel}</p>
-          <p className="-mt-2 mb-3 md:mb-8 flex items-center justify-start gap-2 text-[#8A8A8A] text-base ">
+          <p className="text-3xl md:text-3xl">{car.carModel}</p>
+          <p className=" mb-3 md:mb-8 flex items-center justify-start gap-2 text-[#8A8A8A] text-base ">
             <span className="underline ">EMI STARTS</span> @ &#x20b9; {carEmi}
           </p>
         </div>

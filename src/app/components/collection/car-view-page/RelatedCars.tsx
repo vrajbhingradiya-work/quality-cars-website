@@ -31,14 +31,14 @@ function RelatedCars() {
 export default RelatedCars;
 
 function CarCard({ car }: any) {
-  let carPrice = new Intl.NumberFormat("en-IN").format(car.price);
+  let carPrice = new Intl.NumberFormat("en-IN").format(car?.price);
   let carEmi = new Intl.NumberFormat("en-IN").format(
-    emiCalculatorFunction(car.price)
+    emiCalculatorFunction(car?.price)
   );
   return (
     <Link
       href={`/collection/${car?.id}`}
-      className=" relative  min-h-[500px] md:min-h-[400px] min-w-[320px] max-w-[400px] flex flex-col gap-4 rounded-xl bg-[#F4F4F4]"
+      className=" relative  min-h-[500px] md:min-h-[550px] min-w-[320px] max-w-[380px] flex flex-col  gap-4 rounded-xl bg-[#F4F4F4]"
     >
       {car?.isBooked && (
         <div className="absolute z-10 top-6 -right-[1.25px] bg-[#E00F0E] rounded-l-xl p-4 py-1 font-[500] text-sm tracking-widest">
@@ -50,21 +50,24 @@ function CarCard({ car }: any) {
           NEW
         </div>
       )}
-      <div className="relative overflow-hidden w-full h-[300px] rounded-t-xl">
+      <div className="relative w-full h-[240px] xl:h-[260px] rounded-t-xl overflow-hidden">
         <Image
           src={car?.images[0]}
-          alt="car-image"
-          fill={true}
           objectFit="cover"
+          priority={true}
+          fill={true}
+          alt="car-image"
         />
       </div>
-      <div className="flex flex-col gap-2 md:gap-4 p-2 px-6 text-black font-medium tracking-wider">
-        <p className=" text-lg font-[600]">&#x20b9; {carPrice}</p>
-        <p className="text-4xl md:text-5xl">{car.carModel}</p>
-        <p className="-mt-2 mb-3 md:mb-8 flex items-center justify-start gap-2 text-[#8A8A8A] text-base ">
-          <span className="underline ">EMI STARTS</span> @ &#x20b9; {carEmi}
-        </p>
-        <div className=" grid grid-cols-2 md:flex justify-between gap-4 items-center font-semibold w-full text-[#69686D] text-base tracking-normal">
+      <div className=" flex flex-col justify-between gap-2  p-2 px-6 text-black font-medium tracking-wider">
+        <div className="md:h-[150px] flex flex-col  gap-2  text-black font-medium tracking-wider">
+          <p className=" text-lg font-[600]">&#x20b9; {carPrice}</p>
+          <p className="text-3xl md:text-3xl">{car.carModel}</p>
+          <p className=" mb-3 md:mb-8 flex items-center justify-start gap-2 text-[#8A8A8A] text-base ">
+            <span className="underline ">EMI STARTS</span> @ &#x20b9; {carEmi}
+          </p>
+        </div>
+        <div className=" h-full grid grid-cols-2 md:flex justify-between gap-4 items-center font-semibold w-full text-[#69686D] text-base tracking-normal">
           <div className="flex flex-col col-span-1 gap-1">
             {/* options */}
             <span className="text-[#565655]">REG.YEAR </span>
