@@ -279,6 +279,7 @@ function SelectedCarCard({
     },
   ];
   const [brand, setBrand] = React.useState(car?.brand ? car.brand : "default");
+  const path = usePathname();
 
   const [modelOptions, setModelOptions] = React.useState([]);
 
@@ -286,9 +287,7 @@ function SelectedCarCard({
     car?.carModel ? car.carModel : "default"
   );
 
-  const [carImage, setCarImage] = React.useState(
-    car?.image ? car?.images[0] : defaultImage
-  );
+  const [carImage, setCarImage] = React.useState(defaultImage);
 
   const handleReset = () => {
     setBrand("default");
@@ -311,7 +310,12 @@ function SelectedCarCard({
               ? `${brand} - ${carModel}`
               : "SELECT A CAR"}
           </span>
-          <button aria-label="btn" type="button" onClick={handleReset}>
+          <button
+            className={`${path !== "/emi-calculator" ? "hidden" : ""}`}
+            aria-label="btn"
+            type="button"
+            onClick={handleReset}
+          >
             <DustbinIcon
               className={` ${
                 carModel !== "default" && brand !== "default" ? "" : "hidden"
@@ -358,6 +362,7 @@ function SelectedCarCard({
                   car.brand === brand && car.carModel === e.target.value
               );
               setCar(selectedCar[0]);
+              setCarImage(selectedCar[0].images[0]);
             }}
           >
             <option value="default">SELECT MODEL</option>
@@ -376,13 +381,32 @@ function SelectedCarCard({
         <div
           className={` ${
             carModel !== "default" && brand !== "default"
-              ? " max-h-[300px] w-full max-w-[500px] xl:max-h-[422px] xl:max-w-[750px]"
+              ? "hidden xl:block xl:max-h-[422px] xl:max-w-[750px]"
               : "hidden"
           }`}
         >
           <Image
             src={carImage}
             alt="car-image"
+            height={422}
+            width={750}
+            objectFit="cover"
+            className="h-full w-full rounded-xl object-cover"
+          />
+        </div>
+        <div
+          className={` ${
+            carModel !== "default" && brand !== "default"
+              ? " max-h-[300px] w-full max-w-[500px] xl:hidden"
+              : "hidden"
+          }`}
+        >
+          <Image
+            src={carImage}
+            alt="car-image"
+            height={300}
+            width={500}
+            objectFit="cover"
             className="h-full w-full rounded-xl object-cover"
           />
         </div>

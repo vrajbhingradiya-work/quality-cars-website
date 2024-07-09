@@ -95,6 +95,11 @@ function CarCard({ car }: any) {
           NEW
         </div>
       )}
+      {car?.isSold && (
+        <div className="absolute z-10 left-6 -top-[1.25px] bg-[#E00F0E] rounded-b-xl p-4 px-2 font-[500] text-base tracking-widest">
+          SOLD
+        </div>
+      )}
       <div className="relative w-full h-[240px] xl:h-[260px] rounded-t-xl overflow-hidden">
         <Image
           src={car?.images[0]}
@@ -106,9 +111,15 @@ function CarCard({ car }: any) {
       </div>
       <div className=" flex flex-col justify-between gap-2  p-2 px-6 text-black font-medium tracking-wider">
         <div className="md:h-[150px] flex flex-col  gap-2  text-black font-medium tracking-wider">
-          <p className=" text-lg font-[600]">&#x20b9; {carPrice}</p>
+          <p className={`${car.isSold ? "hidden" : ""} text-lg font-[600]`}>
+            &#x20b9; {carPrice}
+          </p>
           <p className="text-3xl md:text-3xl">{car.carModel}</p>
-          <p className=" mb-3 md:mb-8 flex items-center justify-start gap-2 text-[#8A8A8A] text-base ">
+          <p
+            className={`${
+              car.isSold ? "hidden" : ""
+            } mb-3 md:mb-8 flex items-center justify-start gap-2 text-[#8A8A8A] text-base `}
+          >
             <span className="underline ">EMI STARTS</span> @ &#x20b9; {carEmi}
           </p>
         </div>

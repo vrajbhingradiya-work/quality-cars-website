@@ -41,7 +41,7 @@ function Navbar() {
 
   const menuOptions = [
     {
-      title: "Used Cars",
+      title: "Pre-owned Cars",
       href: "/collection",
     },
     {
@@ -148,8 +148,8 @@ function Navbar() {
         } h-[120px] flex justify-between items-center overflow-hidden`}
       >
         <Link className="flex justify-center items-center " href="/">
-          <div className="w-[225px]">
-            <Image src={logo} className="object-contain w-full" alt="Logo" />
+          <div className="w-[160px] ">
+            <Image src={logo} className="object-contain w-full " alt="Logo" />
           </div>
         </Link>
         <div className="flex gap-8 xl:justify-end   text-xl  justify-end items-center w-[50%]">
@@ -221,7 +221,7 @@ function Navbar() {
                 router.push("/");
                 setMenuOpen(false);
               }}
-              className="hidden md:block w-[60%] xl:w-[30%] h-[100%] bg-white "
+              className="hidden md:block w-[60%] xl:w-[30%] h-[100vh] bg-white "
             >
               <Image
                 src={BannerImage}
@@ -232,26 +232,33 @@ function Navbar() {
 
             <div className="flex flex-col  w-full md:w-[40%] xl:w-[70%] h-[100%]">
               {/* cross mark */}
-              <div className="flex justify-between items-center py-4 px-16 fill-white ">
-                <div className="w-[225px]">
-                  <Image
-                    src={logo}
-                    className="object-contain w-full"
-                    alt="Logo"
-                  />
+              <div className="flex justify-between  items-center py-4 px-16 fill-white ">
+                <div className="w-full">
+                  <div className="w-[155px] p-8">
+                    <Image
+                      src={logo}
+                      className="object-contain w-full"
+                      alt="Logo"
+                    />
+                  </div>
                 </div>
-                <button
-                  aria-label="Toggle menu"
-                  type="button"
-                  className="h-full w-[25px]"
-                  onClick={() => {
-                    setMenuOpen(!menuOpen);
-                  }}
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
-                  </svg>
-                </button>
+                <div className="flex justify-center w-full">
+                  <button
+                    aria-label="Toggle menu"
+                    type="button"
+                    className="h-full w-[25px]  "
+                    onClick={() => {
+                      setMenuOpen(!menuOpen);
+                    }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 384 512"
+                    >
+                      <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                    </svg>
+                  </button>
+                </div>
               </div>
 
               {/* MENU options */}
@@ -264,7 +271,7 @@ function Navbar() {
                       setMenuOpen(false);
                       router.push(option.href);
                     }}
-                    className="hover-navitem fill-white flex p-4"
+                    className="hover-navitem fill-white flex p-4 "
                   >
                     <CarIcon className="h-[35px] w-[35px] mr-3" />
                     {option.title}

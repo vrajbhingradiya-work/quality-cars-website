@@ -1,26 +1,26 @@
 import Image from "next/image";
 import React from "react";
 import defaultImage from "@/assets/images/header1.jpg";
-import { title } from "process";
+
 function OurUsp() {
   const cardInfo = [
     {
       image: defaultImage,
       title: {
-        normal: "7600+",
+        normal: "2000+",
         bold: " Happy Customers",
       },
       details:
-        "At QC, we offer you comparisons across various parameters thereby helping you choose the ideal one.",
+        "Join our 2000+ happy customers who have found their ideal car with QC's comprehensive comparisons.",
     },
     {
       image: defaultImage,
       title: {
-        normal: "Jaipur's",
-        bold: "Biggest Collection",
+        normal: "Rajasthan's",
+        bold: " Biggest Collection",
       },
       details:
-        "At QC, we offer you comparisons across various parameters thereby helping you choose the ideal one.",
+        "Explore Rajasthan's biggest collection of cars with QC's extensive range of options.",
     },
     {
       image: defaultImage,
@@ -29,18 +29,19 @@ function OurUsp() {
         bold: " CheckPoints",
       },
       details:
-        "At QC, we offer you comparisons across various parameters thereby helping you choose the ideal one.",
+        "Experience unmatched quality with QC's 151 rigorous checkpoints ensuring the best cars.",
     },
     {
       image: defaultImage,
       title: {
-        normal: "30 Luxury",
+        normal: "15+ Luxury",
         bold: " Car Brands",
       },
       details:
-        "At QC, we offer you comparisons across various parameters thereby helping you choose the ideal one.",
+        "Discover 15+ luxury car brands at QC, helping you choose from the finest automobiles.",
     },
   ];
+
   return (
     <div>
       <div className="tracking-wider text-xl text-black flex flex-col gap-12 bg-white p-6  md:p-16  xl:p-32 py-32 ">

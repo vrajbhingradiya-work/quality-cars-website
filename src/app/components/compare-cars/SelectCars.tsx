@@ -95,13 +95,12 @@ function SelectedCarCard({
     car?.carModel ? car.carModel : "default"
   );
 
-  const [carImage, setCarImage] = React.useState(
-    car?.images?.frontView ? car.images.frontView : defaultImage
-  );
+  const [carImage, setCarImage] = React.useState(defaultImage);
 
   const handleReset = () => {
     setBrand("default");
     setCarModel("default");
+    setCarImage(defaultImage);
     setIsComparisonChartVisible(false);
   };
 
@@ -161,6 +160,7 @@ function SelectedCarCard({
                   car.brand === brand && car.carModel === e.target.value
               );
               setCar(selectedCar[0]);
+              setCarImage(selectedCar[0].images[0]);
             }}
           >
             <option value="default">SELECT MODEL</option>
@@ -184,6 +184,9 @@ function SelectedCarCard({
           <Image
             src={carImage}
             alt="car-image"
+            objectFit="cover"
+            width={500}
+            height={300}
             className="h-full w-full rounded-xl object-cover"
           />
         </div>

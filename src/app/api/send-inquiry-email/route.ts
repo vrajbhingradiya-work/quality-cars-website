@@ -1,43 +1,34 @@
-import nodemailer from "nodemailer";
-import { NextResponse } from "next/server";
+import EmailTemplate from "@/emails/EmailTemplate";
+import { Resend } from "resend";
+import * as React from "react";
 
-export async function POST(request: any) {
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+export async function POST(request: Request, response: Response) {
   try {
-    console.log(request.body);
-    const {} = await request.json();
+    const { clientName, clientNumber, clientEmailId, clientMessage } =
+      await request.json();
 
-    var transport = nodemailer.createTransport({
-      service: "Gmail", // Use your email service
-      auth: {
-        user: "junexus.edgerunners@gmail.com", // Replace with your email
-        pass: "zxcw vinh mfyy jrej", // Replace with your email password
-      },
-    });
-
-    const mailOptions = {
-      from: "junexus.edgerunners@gmail.com",
-
-      to: "lll.rg3.lll@gmail.com",
+    const { data, error } = await resend.emails.send({
+      from: "info@digitalfry.in",
+      to: ["info@qualitycarsjaipur.com", "qualitycarsjpr@gmail.com"],
+      // to: ["lll.rg3.lll@gmail.com"],
       subject: `Inquiry Raised by ${clientName}`,
-      text: `
-      Client Name : ${clientName} ,
-      
-      Client EmailId : ${clientEmailId} ,
-
-      Client Number : ${clientNumber} ,
-
-      Client Location: ${clientLocation},
-    
-      Client Message : ${clientMessage} `,
-    };
-    const mailresponse = await transport.sendMail(mailOptions, (error: any) => {
-      if (error) {
-        console.error("Email error:", error);
-      }
+      react: EmailTemplate({
+        clientName,
+        clientNumber,
+        clientEmailId,
+        clientMessage,
+      }) as React.ReactElement,
     });
     console.log("email sent");
-    return NextResponse.json({ message: mailresponse }, { status: 200 });
-  } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+
+    if (error) {
+      return Response.json({ error }, { status: 500 });
+    }
+
+    return Response.json(data);
+  } catch (error) {
+    return Response.json({ error }, { status: 500 });
   }
 }
