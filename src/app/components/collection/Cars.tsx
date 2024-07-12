@@ -83,7 +83,7 @@ function CarCard({ car }: any) {
   return (
     <Link
       href={`/collection/${car?.id}`}
-      className=" relative  min-h-auto md:min-h-[550px] min-w-[320px] max-w-[380px] flex flex-col  gap-4 rounded-xl bg-[#F4F4F4]"
+      className=" relative overflow-hidden min-h-auto md:min-h-[550px] min-w-[320px] max-w-[380px] flex flex-col  gap-4 rounded-xl bg-[#F4F4F4]"
     >
       {car?.isBooked && (
         <div className="absolute z-10 top-6 -right-[1.25px] bg-[#E00F0E] rounded-l-xl p-4 py-1 font-[500] text-sm tracking-widest">
