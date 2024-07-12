@@ -148,7 +148,7 @@ function Navbar() {
         } h-[120px] flex justify-between items-center overflow-hidden`}
       >
         <Link className="flex justify-center items-center " href="/">
-          <div className="w-[160px] ">
+          <div className="w-[100px] lg:w-[160px] ">
             <Image src={logo} className="object-contain w-full " alt="Logo" />
           </div>
         </Link>
@@ -234,7 +234,7 @@ function Navbar() {
               {/* cross mark */}
               <div className="flex justify-between  items-center py-4 px-16 fill-white ">
                 <div className="w-full">
-                  <div className="w-[155px] p-8">
+                  <div className=" w-[105px] lg:w-[155px] py-8 pr-8">
                     <Image
                       src={logo}
                       className="object-contain w-full"

@@ -4,8 +4,8 @@ import {
   HeroBanner2,
   HeroBanner3,
   HomePageCarsCorousel,
-  HowItWorks,
 } from "@/app/components";
+import HowItWorksNew from "@/app/components/home/HowItWorksNew";
 import React from "react";
 
 function Home() {
@@ -15,7 +15,7 @@ function Home() {
       <HeroBanner2 />
       <HeroBanner3 />
       <HomePageCarsCorousel />
-      <HowItWorks />
+      <HowItWorksNew />
       <FromTheQCWorld />
     </div>
   );
