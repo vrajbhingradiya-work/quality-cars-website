@@ -24,35 +24,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      <link
-          rel='apple-touch-icon'
-          sizes='180x180'
-          href='/layout/favicon/apple-touch-icon.png'
-        />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.png" type="image/png" sizes="32x32" />
         <link
-          rel='icon'
-          type='image/png'
-          sizes='32x32'
-          href='/layout/favicon/favicon-32x32.png'
-        />
-        <link
-          rel='icon'
-          type='image/png'
-          sizes='16x16'
-          href='/layout/favicon/favicon-16x16.png'
-        />
-        <link rel='manifest' href='/layout/favicon/site.webmanifest' />
-        <link
-          rel='mask-icon'
-          href='/layout/favicon/safari-pinned-tab.svg'
-          color='#5bbad5'
-        />
-        <link rel='shortcut icon' href='/layout/favicon/favicon.ico' />
-        <meta name='msapplication-TileColor' content='#da532c' />
-        <meta name='theme-color' content='#000000' />
-        <meta
-          name='msapplication-config'
-          content='/layout/favicon/browserconfig.xml'
+          rel="apple-icon"
+          href="/apple-icon.png"
+          type="image/png"
+          sizes="any"
         />
       </head>
       <body className={barlowCondensed.className}>
