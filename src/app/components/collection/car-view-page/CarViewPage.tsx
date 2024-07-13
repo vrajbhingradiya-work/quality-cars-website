@@ -12,8 +12,13 @@ function CarViewPage() {
   const router = useRouter();
   const cars = useAppSelector((state) => state.car.cars);
   const params = useParams();
-  const id = parseInt(params.id[0]);
-  const [car, setCar] = React.useState(cars[0]);
+
+  const id = Array.isArray(params.id)
+    ? parseInt(params.id[0], 10)
+    : parseInt(params.id, 10);
+
+  const [car, setCar] = React.useState(cars[id - 1]);
+
   useEffect(() => {
     if (cars?.length !== 0 && id <= cars?.length) {
       setCar(cars[id - 1]);
@@ -32,8 +37,8 @@ function CarViewPage() {
         <SwipeCarouselDesktop car={car} />
       </div>
       <CarSummary car={car} />
-      <div className="px-32  w-full bg-white">
-        <div className="h-[1px]  border-b-[1px] border-[#CCCCCC]"></div>
+      <div className="px-32 w-full bg-white">
+        <div className="h-[1px] border-b-[1px] border-[#CCCCCC]"></div>
       </div>
       <RelatedCars />
     </div>
