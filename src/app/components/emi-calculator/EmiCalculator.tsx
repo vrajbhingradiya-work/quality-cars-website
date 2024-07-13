@@ -269,11 +269,10 @@ function SelectedCarCard({
   const brandOptions = [
     { title: "BMW" },
     { title: "AUDI" },
-    {
-      title: "LAND ROVER",
-    },
-    { title: "BMW" },
-    { title: "AUDI" },
+
+    { title: "JAGUAR" },
+    { title: "TOYOTA" },
+
     {
       title: "LAND ROVER",
     },
@@ -287,7 +286,9 @@ function SelectedCarCard({
     car?.carModel ? car.carModel : "default"
   );
 
-  const [carImage, setCarImage] = React.useState(defaultImage);
+  const [carImage, setCarImage] = React.useState(
+    car?.images[0] ? car?.images[0] : defaultImage
+  );
 
   const handleReset = () => {
     setBrand("default");
