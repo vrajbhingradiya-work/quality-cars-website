@@ -1,8 +1,8 @@
 import React from "react";
 import { GoShieldCheck as ShieldTick } from "react-icons/go";
-import GavelIcon from "@mui/icons-material/Gavel";
-import SpeedIcon from "@mui/icons-material/Speed";
-import DescriptionIcon from "@mui/icons-material/Description";
+import { MdGavel as GavelIcon } from "react-icons/md";
+import { MdOutlineSpeed as SpeedIcon } from "react-icons/md";
+import { MdOutlineDescription as DescriptionIcon } from "react-icons/md";
 import { IoCarSportOutline as CarIcon } from "react-icons/io5";
 import { GrDocumentConfig as ServiceHistoryIcon } from "react-icons/gr";
 import { TbShieldDollar as InsuranceIcon } from "react-icons/tb";
@@ -38,7 +38,7 @@ function MandateCheckSection() {
       svg: (
         <CarIcon className="h-[75px] md:h-[105px] w-[75px] md:w-[105px] p-4 md:p-8 rounded-xl bg-[#CCCCCC]" />
       ),
-      title: "Model 2015 & above & KMS driven less than 30,000 only",
+      title: "Model 2018 & above & KMS driven less than 60,000 only",
     },
     {
       svg: (

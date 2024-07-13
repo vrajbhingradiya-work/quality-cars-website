@@ -81,10 +81,10 @@ function FormAndKeyPoints() {
         <div className=" flex flex-col justify-center gap-8 w-full py-16 pt-8 ">
           <div className="text-3xl md:text-5xl font-semibold tracking-wide w-full flex flex-col gap-2 justify-center items-center  text-left md:text-center">
             <p className=" w-full text-black ">
-              AUTHORIZED LUXURY CAR BUYERS IN INDIA
+              WANT TO SELL YOUR LUXURY CAR ?
             </p>
             <p className="hollowLetters w-full text-4xl md:text-inherit">
-              QUALITY CARS
+              {`WE'RE ALWAYS HERE!`}
             </p>
           </div>
         </div>
