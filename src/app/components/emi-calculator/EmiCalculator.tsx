@@ -287,7 +287,7 @@ function SelectedCarCard({
   );
 
   const [carImage, setCarImage] = React.useState(
-    car?.images[0] ? car?.images[0] : defaultImage
+    car?.images?.[0] ? car?.images[0] : defaultImage
   );
 
   const handleReset = () => {
