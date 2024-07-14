@@ -289,10 +289,10 @@ function FooterLinks() {
       <div className="grid grid-cols-4 gap-6">
         <div className="flex flex-col gap-4 text-sm text-[#6E6E6E] tracking-[0.05em]">
           <span className=" text-white">Headquarters</span>
-          <span className="">
+          <Link href="https://maps.app.goo.gl/eRZCYbNrFasngtjS9" className="">
             Plot no. 27 Surajpura House, Rail Nagar, T. N. Mishra Marg,
             Jaipur-302019
-          </span>
+          </Link>
         </div>
       </div>
       <div className="h-[1px] w-full border-b-[1px] border-[#232323]"></div>
@@ -315,7 +315,7 @@ function FooterLinks() {
           <span className=" text-white">Sell Car</span>
           <span className="flex gap-2 items-center">
             <PhoneIcon />
-            +91 9829407612
+            +91 9799907612
           </span>
         </Link>
       </div>
