@@ -1,16 +1,44 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { emiCalculatorFunction } from "@/app/helpers/emiCalculatorFunction";
-import { useAppSelector } from "@/lib/hooks/hooks";
 import SlideInFromBottom from "../../utils/SlideInFromBottom";
 import SlideInFromLeft from "../../utils/SlideInFromLeft";
+import { useParams, useRouter } from "next/navigation";
+import { useAppSelector } from "@/lib/hooks/hooks";
 
 function RelatedCars() {
-  const relatedCars = useAppSelector((state) => state.car.cars);
+  const router = useRouter();
+  const cars = useAppSelector((state) => state.car.cars);
+  const params = useParams();
+
+  const id = Array.isArray(params.id)
+    ? parseInt(params.id[0], 10)
+    : parseInt(params.id, 10);
+
+  const [car, setCar] = React.useState(cars[id - 1]);
+
+  useEffect(() => {
+    if (cars?.length !== 0 && id <= cars?.length) {
+      setCar(cars[id - 1]);
+    } else {
+      router.push("/");
+    }
+  }, [cars, setCar, router, id]);
+
+  const relatedCars = cars.filter(
+    (e) => e.carType === car.carType && e.id !== car.id
+  );
+
   return (
-    <div className="flex flex-col gap-4 bg-white text-black lg:px-64 py-32 p-3 ">
+    <div
+      className={`${
+        relatedCars.length !== 0
+          ? "flex flex-col gap-4 bg-white text-black lg:px-64 py-32 p-3 "
+          : "hidden"
+      }`}
+    >
       <SlideInFromBottom sequence={1}>
         <div className="text-3xl font-medium text-black pb-8 w-full text-center md:text-left  ">
           RELATED CARS
@@ -18,7 +46,7 @@ function RelatedCars() {
       </SlideInFromBottom>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 mx-auto">
-        {relatedCars.slice(0, 9).map((car, index) => (
+        {relatedCars?.slice(0, 9).map((car: any, index: any) => (
           <SlideInFromLeft sequence={index} key={index + 2}>
             <CarCard key={index} car={car} />
           </SlideInFromLeft>

@@ -46,14 +46,14 @@ function FilterSection() {
     <div
       className={` border-b-[1px] border-[#D9D9D9] bg-white py-6 md:px-16  w-full `}
     >
-      <div className="flex flex-col gap-8 md:gap-0 md:flex-row items-center justify-between w-full text-left">
+      <div className="flex  gap-2 md:gap-0 flex-row items-center justify-between w-full text-left">
         <span className="text-black text-3xl font-medium md:block hidden">
           TOTAL {results} RESULTS FOUND
         </span>
         <span className="text-black text-3xl font-medium md:hidden text-left w-full">
           COLLECTION
         </span>
-        <div className="flex items-center justify-between md:w-[400px] w-full text-black font-medium tracking-wide">
+        <div className="flex items-center justify-end gap-2 md:justify-between md:w-[400px] w-full text-black font-medium tracking-wide">
           <div className="flex gap-2 items-center justify-center ">
             <span className="hidden md:block">FILTERS:</span>
             <motion.button
@@ -82,7 +82,7 @@ function FilterSection() {
                   filterQueries?.carType.title === ""
                     ? "fill-black"
                     : "fill-white bg-black"
-                } h-6 w-6`}
+                } h-4 md:h-6 w-4 md:w-6`}
               />
             </motion.button>
             <FilterOptions
@@ -98,7 +98,7 @@ function FilterSection() {
             </label>
             <select
               id="sort"
-              className="p-2 px-4 border-[1px] border-[#D9D9D9] rounded-md flex justify-between w-[200px]  items-center"
+              className="p-[0.3rem] md:p-2 px-4 border-[1px] border-[#D9D9D9] rounded-md flex justify-between w-[90px] md:w-[200px]  items-center"
               value={sort}
               onChange={(e) => {
                 setSort(Number(e.target.value));
@@ -398,9 +398,9 @@ function FilterOptions({ isShowing, setIsShowing, setFilterQueries }: any) {
   return (
     <>
       {isShowing ? (
-        <div className="fixed z-20 top-0 left-0 flex  justify-center items-center h-full pt-[26rem] pb-6 md:pt-0 w-full bg-black/50 overflow-y-scroll ">
+        <div className="fixed z-20 top-0 left-0 flex  justify-center items-center h-full pt-[26rem] pb-6 md:pt-12 w-full bg-black/50 overflow-y-scroll ">
           <SlideInFromBottom sequence={4}>
-            <div className="  bg-white w-[90%] rounded-xl text-black  lg:w-[900px] lg:rounded-xl">
+            <div className="  bg-white w-[100%] rounded-xl text-black  lg:w-[900px] lg:rounded-xl">
               <div className="flex flex-col w-full gap-2 py-6 px-6 md:px-0">
                 <div className="flex gap-4  items-center justify-between  md:justify-end">
                   {/* reset motion.button */}

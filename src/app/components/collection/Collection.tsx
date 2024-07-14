@@ -7,7 +7,7 @@ import SimpleFadeIn from "../utils/SimpleFadeIn";
 
 function Collection() {
   return (
-    <div className="bg-white p-8 md:px-16 overflow-hidden ">
+    <div className="bg-white p-4 md:p-8 md:px-16 overflow-hidden ">
       <SimpleFadeIn sequence={4}>
         <PageNav />
       </SimpleFadeIn>

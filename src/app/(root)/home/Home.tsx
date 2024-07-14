@@ -5,6 +5,7 @@ import {
   HeroBanner3,
   HomePageCarsCorousel,
 } from "@/app/components";
+import DragableCarsCarousel from "@/app/components/home/DragableCarsCarousel.tsx";
 import HowItWorksNew from "@/app/components/home/HowItWorksNew";
 import React from "react";
 
@@ -14,7 +15,8 @@ function Home() {
       <HeroBanner1 />
       <HeroBanner2 />
       <HeroBanner3 />
-      <HomePageCarsCorousel />
+      {/* <HomePageCarsCorousel /> */}
+      <DragableCarsCarousel />
       <HowItWorksNew />
       <FromTheQCWorld />
     </div>
