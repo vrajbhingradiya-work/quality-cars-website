@@ -1,11 +1,13 @@
 import Image from "next/image";
 import React from "react";
-import defaultImage from "@/assets/images/header1.jpg";
-
+import image1 from "@/assets/images/about-us/2000plus-happy-customers.jpg";
+import image2 from "@/assets/images/about-us/rajasthans-biggest-collection.jpg";
+import image3 from "@/assets/images/about-us/151-quality-checkpoints.jpg";
+import image4 from "@/assets/images/about-us/15plus-luxury-car-brands.jpg";
 function OurUsp() {
   const cardInfo = [
     {
-      image: defaultImage,
+      image: image1,
       title: {
         normal: "2000+",
         bold: " Happy Customers",
@@ -14,7 +16,7 @@ function OurUsp() {
         "Join our 2000+ happy customers who have found their ideal car with QC's comprehensive comparisons.",
     },
     {
-      image: defaultImage,
+      image: image2,
       title: {
         normal: "Rajasthan's",
         bold: " Biggest Collection",
@@ -23,7 +25,7 @@ function OurUsp() {
         "Explore Rajasthan's biggest collection of cars with QC's extensive range of options.",
     },
     {
-      image: defaultImage,
+      image: image3,
       title: {
         normal: "151 Quality",
         bold: " CheckPoints",
@@ -32,7 +34,7 @@ function OurUsp() {
         "Experience unmatched quality with QC's 151 rigorous checkpoints ensuring the best cars.",
     },
     {
-      image: defaultImage,
+      image: image4,
       title: {
         normal: "15+ Luxury",
         bold: " Car Brands",

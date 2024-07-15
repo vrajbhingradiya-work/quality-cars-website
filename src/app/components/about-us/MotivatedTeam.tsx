@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import image from "@/assets/images/header1.jpg";
+import image from "@/assets/images/about-us/team.jpg";
 import Image from "next/image";
 
 function MotivatedTeam() {

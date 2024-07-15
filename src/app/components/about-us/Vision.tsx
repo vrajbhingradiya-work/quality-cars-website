@@ -17,7 +17,7 @@ function Vision() {
             <p className="  text-black">{`OUR VISION`}</p>
           </div>
           <div className="text-lg md:text-2xl">
-            {`To lead the global transformation of the automotive landscape by inspiring innovation, nurturing young minds, and driving positive change.`}
+            {`To fulfill the dreams of our clients who are willing to buy best pre-owned luxury vehicles.`}
           </div>
           <Link
             href="/about-us"

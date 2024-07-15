@@ -19,7 +19,7 @@ function page() {
           <IntroQualityCars />
           <OurUsp />
           <QCShowroom />
-          <DedicatedServiceCentre />
+          {/* <DedicatedServiceCentre /> */}
           <Vision />
           <MotivatedTeam />
         </div>

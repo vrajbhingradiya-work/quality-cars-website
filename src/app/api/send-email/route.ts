@@ -12,7 +12,11 @@ export async function POST(request: Request, response: Response) {
     const { data, error } = await resend.emails.send({
       from: "info@digitalfry.in",
       // to: ["info@qualitycarsjaipur.com", "qualitycarsjpr@gmail.com"],
-      to: ["lll.rg3.lll@gmail.com"],
+      to: [
+        // "info@qualitycarsjaipur.com",
+        // "qualitycarsjpr@gmail.com",
+        "lll.rg3.lll@gmail.com",
+      ],
       subject: `Inquiry Raised by ${clientName}`,
       react: EmailTemplate({
         clientName,
