@@ -223,29 +223,44 @@ function ComparisonChart({ car1, car2 }: any) {
             <span>{car2?.specs?.peakPower}</span>
           </div>
           <div className="grid grid-cols-3 p-4 w-full text-center bg-[#cccccc]">
+            <span className="font-medium text-left">PEAK TORQUE</span>
+            <span>{car1?.specs?.peakTorque}</span>
+            <span>{car2?.specs?.peakTorque}</span>
+          </div>
+          <div className="grid grid-cols-3 p-4 w-full text-center ">
+            <span className="font-medium text-left">OWNERSHIP</span>
+            <span>{car1?.specs.ownership}</span>
+            <span>{car2?.specs.ownership}</span>
+          </div>
+          <div className="grid grid-cols-3 p-4 w-full text-center bg-[#cccccc]">
             <span className="font-medium text-left">TRANSMISSION</span>
             <span>{car1?.specs?.transmission}</span>
             <span>{car2?.specs?.transmission}</span>
           </div>
           <div className="grid grid-cols-3 p-4 w-full text-center ">
-            <span className="font-medium text-left">VEHICLE TYPE</span>
-            <span>{car1?.carType}</span>
-            <span>{car2?.carType}</span>
+            <span className="font-medium text-left">DOORS</span>
+            <span>{car1?.specs.doors}</span>
+            <span>{car2?.specs.doors}</span>
           </div>
           <div className="grid grid-cols-3 p-4 w-full text-center bg-[#cccccc]">
-            <span className="font-medium text-left">VEHICLE TYPE</span>
-            <span>{car1?.carType}</span>
-            <span>{car2?.carType}</span>
+            <span className="font-medium text-left">DRIVE</span>
+            <span>{car1?.specs.drive}</span>
+            <span>{car2?.specs.drive}</span>
           </div>
           <div className="grid grid-cols-3 p-4 w-full text-center ">
-            <span className="font-medium text-left">VEHICLE TYPE</span>
-            <span>{car1?.carType}</span>
-            <span>{car2?.carType}</span>
+            <span className="font-medium text-left">SEATING CAPACITY</span>
+            <span>{car1?.specs.seatingCapacity}</span>
+            <span>{car2?.specs.seatingCapacity}</span>
           </div>
           <div className="grid grid-cols-3 p-4 w-full text-center bg-[#cccccc]">
-            <span className="font-medium text-left">VEHICLE TYPE</span>
-            <span>{car1?.carType}</span>
-            <span>{car2?.carType}</span>
+            <span className="font-medium text-left">MANUFACTURING YEAR</span>
+            <span>{car1?.specs.manufacturingYear}</span>
+            <span>{car2?.specs.manufacturingYear}</span>
+          </div>
+          <div className="grid grid-cols-3 p-4 w-full text-center ">
+            <span className="font-medium text-left">EXTERIOR COLOR</span>
+            <span>{car1?.specs.exteriorColor}</span>
+            <span>{car2?.specs.exteriorColor}</span>
           </div>
         </div>
       </div>
