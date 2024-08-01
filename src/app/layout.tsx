@@ -15,8 +15,9 @@ const barlowCondensed = Barlow_Condensed({
 });
 
 export const metadata: Metadata = {
-  title: "Quality Cars : Best Used Luxury Cars Dealer in Rajasthan",
-  description: "Best place to buy luxury Cars",
+  title: "ARGT : Best Global Traders",
+  description:
+    "AL Roshan Global Traders United, best global traders with best in class services.",
 };
 
 export default function RootLayout({
