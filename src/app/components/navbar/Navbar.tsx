@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import logo from "../../../assets/images/quality-cars-logo.png";
 import BannerImage from "../../../assets/images/navbar-banner-image.jpg";
 import { IoCarSportOutline as CarIcon } from "react-icons/io5";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import LoadingPageTranstion from "../loading/LoadingPageTranstion";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks/hooks";
 
@@ -20,14 +20,19 @@ function Navbar() {
   const loading = useAppSelector((state) => state.loadingTransition.isLoading);
 
   const dispatch = useAppDispatch();
+  const path = usePathname();
 
   useEffect(() => {
-    // dispatch(startLoadingTransition(""));
+    //  dispatch(startLoadingTransition(""));
 
-    setTimeout(() => {
-      dispatch(fetchCars(defaultFilterQueries));
-    }, 2000);
-  }, [dispatch]);
+    let newFilterQueries = defaultFilterQueries(true);
+    // console.log(path);
+    if (path === "/new-cars") {
+      newFilterQueries = defaultFilterQueries(false);
+    }
+    // console.log("new filter queries from navbar", newFilterQueries);
+    dispatch(fetchCars(newFilterQueries));
+  }, [dispatch, path]);
 
   // useEffect(() => {
   //   if (path !== "/") {
@@ -45,6 +50,10 @@ function Navbar() {
       href: "/collection",
     },
     {
+      title: "New Cars",
+      href: "/new-cars",
+    },
+    {
       title: "Sell Car",
       href: "/sell-car",
     },
@@ -54,11 +63,6 @@ function Navbar() {
     //   href: "/collection",
 
     // },
-
-    {
-      title: "New Cars",
-      href: "/collection",
-    },
 
     // {
     //   title: "Merchandise",

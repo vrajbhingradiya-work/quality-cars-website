@@ -13,12 +13,14 @@ export async function POST(req: Request) {
     if (
       filterQueries?.regYear.title === "All" &&
       filterQueries?.brand.title === "" &&
-      filterQueries?.isCarNew === "" &&
+      filterQueries?.isCarNew === false &&
       filterQueries?.kmsDriven.title === "" &&
       filterQueries?.price.title === "" &&
       filterQueries?.carType.title === ""
     ) {
       cars = await CarModel.find();
+    } else if (filterQueries?.isCarNew) {
+      cars = await CarModel.find({ isCarNew: true });
     } else {
       const currentYear = new Date().getFullYear();
 
@@ -50,6 +52,8 @@ export async function POST(req: Request) {
             : {},
         brand:
           filterQueries?.brand.title !== "" ? filterQueries.brand.value : {},
+
+        isCarNew: filterQueries?.isCarNew === false ? false : true,
       };
 
       console.log("filter string run 18:42", filterString);

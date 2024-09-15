@@ -2,7 +2,7 @@
 import { useAppDispatch, useAppSelector } from "@/lib/hooks/hooks";
 import { fetchCars, setCars } from "@/lib/store/carSlice";
 import { motion } from "framer-motion";
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { BsSliders2Vertical as FilterIcon } from "react-icons/bs";
 import { VscDebugRestart as ResetIcon } from "react-icons/vsc";
 
@@ -20,7 +20,7 @@ function FilterSection() {
   useEffect(() => {
     if (results !== 0) {
       let sortedCars;
-      console.log("funtion called for sorting");
+      // console.log("funtion called for sorting");
       switch (sort) {
         case 0:
           sortedCars = [...cars]; // Create a shallow copy of the array
@@ -39,8 +39,9 @@ function FilterSection() {
     }
   }, [sort]);
 
-  const [filterQueries, setFilterQueries] =
-    React.useState(defaultFilterQueries);
+  const [filterQueries, setFilterQueries] = React.useState(
+    defaultFilterQueries(true)
+  );
 
   return (
     <div
@@ -64,7 +65,7 @@ function FilterSection() {
               className={` ${
                 filterQueries?.regYear.title === "All" &&
                 filterQueries?.brand.title === "" &&
-                filterQueries?.isCarNew === "" &&
+                filterQueries?.isCarNew === false &&
                 filterQueries?.kmsDriven.title === "" &&
                 filterQueries?.price.title === "" &&
                 filterQueries?.carType.title === ""
@@ -76,7 +77,7 @@ function FilterSection() {
                 className={` ${
                   filterQueries?.regYear.title === "All" &&
                   filterQueries?.brand.title === "" &&
-                  filterQueries?.isCarNew === "" &&
+                  filterQueries?.isCarNew === false &&
                   filterQueries?.kmsDriven.title === "" &&
                   filterQueries?.price.title === "" &&
                   filterQueries?.carType.title === ""

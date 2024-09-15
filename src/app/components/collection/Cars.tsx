@@ -93,7 +93,7 @@ function CarCard({ car }: any) {
           BOOKED
         </div>
       )}
-      {car?.isNew && (
+      {car?.isCarNew && (
         <div className="absolute z-10 left-6 -top-[1.25px] bg-[#E00F0E] rounded-b-xl p-4 px-2 font-[500] text-base tracking-widest">
           NEW
         </div>
