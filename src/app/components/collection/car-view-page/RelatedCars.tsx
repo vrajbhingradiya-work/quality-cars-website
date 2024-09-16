@@ -20,7 +20,7 @@ function RelatedCars() {
   const [car, setCar] = React.useState(cars[id - 1]);
 
   useEffect(() => {
-    if (cars?.length !== 0 && id <= cars?.length) {
+    if (cars.length !== 0 && id <= cars.length) {
       setCar(cars[id - 1]);
     } else {
       router.push("/");
@@ -28,7 +28,7 @@ function RelatedCars() {
   }, [cars, setCar, router, id]);
 
   const relatedCars = cars.filter(
-    (e) => e.carType === car.carType && e.id !== car.id
+    (e) => e.carType === car?.carType && e.id !== car?.id
   );
 
   return (

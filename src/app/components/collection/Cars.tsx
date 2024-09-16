@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useAppSelector } from "@/lib/hooks/hooks";
 import LoadingIcon from "../loading/LoadingIcon";
@@ -9,14 +9,12 @@ import SimpleFadeIn from "../utils/SimpleFadeIn";
 import SlideInFromBottom from "../utils/SlideInFromBottom";
 import SlideInFromLeft from "../utils/SlideInFromLeft";
 import { FaWhatsapp as WhatsappIcon } from "react-icons/fa";
-import { IoCallOutline } from "react-icons/io5";
 import { IoIosCall as PhoneIcon } from "react-icons/io";
+import { usePathname } from "next/navigation";
 
-function Cars() {
+function Cars({ cars }: any) {
   const [totalResults, setTotalResults] = useState(9);
   const [loadingMoreCars, setLoadingMoreCars] = useState(false);
-
-  const cars = useAppSelector((state) => state.car.cars);
 
   return (
     <div className={` flex flex-col justify-center items-center`}>
@@ -33,7 +31,7 @@ function Cars() {
       >
         {/* desktop */}
         <div className="hidden p-8 lg:px-16 md:py-16  justify-center  md:grid md:grid-cols-2  xl:grid-cols-3 gap-8 items-center">
-          {cars?.slice(0, totalResults).map((car, index) => (
+          {cars?.slice(0, totalResults).map((car: any, index: any) => (
             <SimpleFadeIn sequence={index * 3} key={index}>
               <CarCard car={car} key={index} />
             </SimpleFadeIn>
@@ -41,7 +39,7 @@ function Cars() {
         </div>
         {/* mobile */}
         <div className="md:hidden md:p-8 lg:px-16 md:py-16 flex flex-col justify-center   md:gap-16 items-center">
-          {cars?.slice(0, totalResults).map((car, index) => (
+          {cars?.slice(0, totalResults).map((car: any, index: any) => (
             <SlideInFromLeft sequence={index + 1} key={index}>
               <CarCard car={car} key={index} />
             </SlideInFromLeft>

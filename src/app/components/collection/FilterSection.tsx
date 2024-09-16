@@ -9,10 +9,8 @@ import { VscDebugRestart as ResetIcon } from "react-icons/vsc";
 import SlideInFromBottom from "../utils/SlideInFromBottom";
 import { defaultFilterQueries } from "@/lib/defaultFilter";
 
-function FilterSection() {
-  const cars = useAppSelector((state) => state.car.cars);
-  const results = cars?.length;
-  const dispatch = useAppDispatch();
+function FilterSection({ cars, setCars }: any) {
+  const results = cars.length;
 
   const [sort, setSort] = React.useState(0);
   const [isShowing, setIsShowing] = React.useState(false);
@@ -35,7 +33,7 @@ function FilterSection() {
           sortedCars = [...cars].sort((x: any, y: any) => x.price - y.price);
           break;
       }
-      dispatch(setCars(sortedCars)); // Dispatch the new sorted array
+      setCars(sortedCars); // Dispatch the new sorted array
     }
   }, [sort]);
 

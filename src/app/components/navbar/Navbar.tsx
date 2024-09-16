@@ -27,7 +27,7 @@ function Navbar() {
 
     let newFilterQueries = defaultFilterQueries(true);
     // console.log(path);
-    if (path === "/new-cars") {
+    if (path === "/new") {
       newFilterQueries = defaultFilterQueries(false);
     }
     // console.log("new filter queries from navbar", newFilterQueries);
