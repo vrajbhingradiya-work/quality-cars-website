@@ -51,7 +51,7 @@ function HeroBanner3() {
           </div>
           <SimpleFadeIn sequence={15}>
             <Button
-              link="/collection"
+              link="/collection/new-cars"
               title="EXPLORE"
               className="bg-[#333333] fill-white hover:bg-[#1A1A1A] w-[180px] md:w-[280px] text-base md:text-xl "
             />
