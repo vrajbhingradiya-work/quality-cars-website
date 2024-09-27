@@ -22,10 +22,13 @@ function Navbar() {
 
   const dispatch = useAppDispatch();
   const path = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     //  dispatch(startLoadingTransition(""));
-
+    setTimeout(() => {
+      setIsOpen(true);
+    }, 1500);
     let newFilterQueries = defaultFilterQueries(true);
     // console.log(path);
     if (path === "/new") {
@@ -145,11 +148,9 @@ function Navbar() {
     },
   ];
 
-  const [isModalShowing, setIsModalShowing] = useState(true);
-
   if (!menuOpen) {
-    if (path === "/" && isModalShowing) {
-      return <SelectCarsTypeModal setIsModalShowing={setIsModalShowing} />;
+    if (path === "/" && isOpen) {
+      return <SelectCarsTypeModal isOpen={isOpen} setIsOpen={setIsOpen} />;
     } else {
       return (
         <div
