@@ -12,7 +12,8 @@ const SpringModal = ({
 }) => {
   const card = {
     command: "Hey there!",
-    title: "Please select the type of car you're interested in.",
+    title:
+      "Please take a moment to select the car type that best matches your interest and preferences. ",
     option1: { title: "Pre-owned Cars", href: "/collection" },
     option2: { title: "New Cars", href: "/new-cars" },
   };
@@ -35,9 +36,9 @@ const SpringModal = ({
           >
             <FiAlertCircle className="text-white/10 rotate-12 text-[250px] absolute z-0 -top-24 -left-24" />
             <div className="relative z-10">
-              <div className="bg-white w-16 h-16 mb-2 rounded-full text-3xl text-gray-600 grid place-items-center mx-auto">
+              {/* <div className="bg-white w-16 h-16 mb-2 rounded-full text-3xl text-gray-600 grid place-items-center mx-auto">
                 <FiAlertCircle />
-              </div>
+              </div> */}
               <h3 className="text-3xl font-bold text-center mb-2">
                 {card.command}
               </h3>
