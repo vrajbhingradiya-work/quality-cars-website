@@ -13,6 +13,7 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks/hooks";
 import { fetchCars } from "@/lib/store/carSlice";
 import SlideInFromBottom from "../utils/SlideInFromBottom";
 import { defaultFilterQueries } from "@/lib/defaultFilter";
+import SelectCarsTypeModal from "../home/SelectCarsTypeModal";
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
@@ -144,20 +145,25 @@ function Navbar() {
     },
   ];
 
+  const [isModalShowing, setIsModalShowing] = useState(true);
+
   if (!menuOpen) {
-    return (
-      <div
-        className={`px-[10vw] w-full ${
-          loading ? "fixed top-0 left-0 z-50 bg-black" : ""
-        } h-[120px] flex justify-between items-center overflow-hidden`}
-      >
-        <Link className="flex justify-center items-center " href="/">
-          <div className="w-[100px] lg:w-[160px] ">
-            <Image src={logo} className="object-contain w-full " alt="Logo" />
-          </div>
-        </Link>
-        <div className="flex gap-8 xl:justify-end   text-xl  justify-end items-center w-[50%]">
-          {/*
+    if (path === "/" && isModalShowing) {
+      return <SelectCarsTypeModal setIsModalShowing={setIsModalShowing} />;
+    } else {
+      return (
+        <div
+          className={`px-[10vw] w-full ${
+            loading ? "fixed top-0 left-0 z-50 bg-black " : ""
+          } h-[120px] flex justify-between items-center overflow-hidden bg-black text-white`}
+        >
+          <Link className="flex justify-center items-center " href="/">
+            <div className="w-[100px] lg:w-[160px] ">
+              <Image src={logo} className="object-contain w-full " alt="Logo" />
+            </div>
+          </Link>
+          <div className="flex gap-8 xl:justify-end   text-xl  justify-end items-center w-[50%]">
+            {/*
             <Link className="hidden xl:block" href="tel:9829407612">
             // options  
             BUY - 9829 4076 12
@@ -173,14 +179,17 @@ function Navbar() {
             |
             // straight slash seperator 
           </div>  */}
-          <Link className="hidden xl:block" href="tel:+919829407612">
-            {" "}
-            QUALITY CARS - +91 9829 4076 12
-          </Link>
-          <div className="hidden xl:block text-xl">
-            |{/* straight slash seperator */}
-          </div>
-          {/* <Link
+            <Link
+              className="hidden xl:block text-white"
+              href="tel:+919829407612"
+            >
+              {" "}
+              QUALITY CARS - +91 9829 4076 12
+            </Link>
+            <div className="hidden xl:block text-xl text-white">
+              |{/* straight slash seperator */}
+            </div>
+            {/* <Link
             href="/stories"
             className="hidden xl:flex gap-2 items-center text-white fill-white"
           >
@@ -193,28 +202,29 @@ function Navbar() {
             </svg>
             <p>STORIES</p>
           </Link> */}
-          <button
-            aria-label="Toggle menu"
-            type="button"
-            onClick={() => {
-              setMenuOpen(!menuOpen);
-            }}
-          >
-            <svg
-              className="fill-white h-[30px] w-[30px] hover:scale-125"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
+            <button
+              aria-label="Toggle menu"
+              type="button"
+              onClick={() => {
+                setMenuOpen(!menuOpen);
+              }}
             >
-              <path d="M32 288c-17.7 0-32 14.3-32 32s14.3 32 32 32l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L32 288zm0-128c-17.7 0-32 14.3-32 32s14.3 32 32 32l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L32 160z" />
-            </svg>
-          </button>
+              <svg
+                className="fill-white h-[30px] w-[30px] hover:scale-125"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+              >
+                <path d="M32 288c-17.7 0-32 14.3-32 32s14.3 32 32 32l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L32 288zm0-128c-17.7 0-32 14.3-32 32s14.3 32 32 32l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L32 160z" />
+              </svg>
+            </button>
+          </div>
+          {loading && <LoadingPageTranstion />}
         </div>
-        {loading && <LoadingPageTranstion />}
-      </div>
-    );
+      );
+    }
   } else {
     return (
-      <div className="fixed top-0 w-[100vw] h-[100vh] left-0 bg-[#151515]  z-50 overflow-hidden  ">
+      <div className="fixed top-0 w-[100vw] h-[100vh] left-0 bg-[#151515]  z-50 overflow-hidden text-white  ">
         <SlideInFromBottom sequence={2}>
           <div className="flex h-full w-full">
             {/* MENU IMAGE */}
@@ -238,7 +248,7 @@ function Navbar() {
               {/* cross mark */}
               <div className="flex justify-between  items-center py-4 px-16 fill-white ">
                 <div className="w-full">
-                  <div className=" w-[105px] lg:w-[155px] py-8 pr-8">
+                  <div className=" w-[105px] lg:w-[155px] py-8 pr-8 xl:pt-8 xl:pr-0 xl:py-0  xl:translate-x-20">
                     <Image
                       src={logo}
                       className="object-contain w-full"
@@ -282,7 +292,7 @@ function Navbar() {
                   </button>
                 ))}
               </div>
-              <div className="pl-20 p-8 xl:pl-32 flex gap-6 items-center bg-gradient-to-t  to-transparent">
+              <div className="pl-20 p-8 xl:pl-36 flex gap-6 items-center bg-gradient-to-t  to-transparent">
                 <span className=" tracking-[.25em] font-semibold text-[#eb5252]">
                   FOLLOW
                 </span>

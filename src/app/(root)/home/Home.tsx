@@ -3,7 +3,6 @@ import {
   HeroBanner1,
   HeroBanner2,
   HeroBanner3,
-  HomePageCarsCorousel,
 } from "@/app/components";
 import DragableCarsCarousel from "@/app/components/home/DragableCarsCarousel.tsx";
 import HowItWorksNew from "@/app/components/home/HowItWorksNew";
